@@ -11,15 +11,21 @@
       :key="opportunity.id"
       @click="searchOpportunity(opportunity.id)"
     >
-      <h2>
-        {{
-          opportunity.objective +
-          " - " +
-          opportunity.status +
-          " - " +
-          opportunity.id
-        }}
-      </h2>
+      <router-link
+        :to="{ name: 'Opportunity', params: { id: opportunity.id } }"
+      >
+        <div class="navigation__user">
+          <h2>
+            {{
+              opportunity.objective +
+              " - " +
+              opportunity.status +
+              " - " +
+              opportunity.id
+            }}
+          </h2>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
