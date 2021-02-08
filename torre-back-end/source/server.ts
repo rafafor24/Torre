@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import logging from './config/logging';
 import config from './config/config';
-import sampleRoutes from './routes/sample';
+import similarRoutes from './routes/similar_opportunities';
 
 const NAMESPACE = 'Server';
 const router = express();
@@ -17,7 +17,7 @@ router.use((req, res, next) => {
         /** Log the res */
         logging.info(NAMESPACE, `METHOD: [${req.method}] - URL: [${req.url}] - STATUS: [${res.statusCode}] - IP: [${req.socket.remoteAddress}]`);
     })
-    
+
     next();
 });
 
@@ -39,7 +39,7 @@ router.use((req, res, next) => {
 });
 
 /** Routes go here */
-router.use('/api/sample', sampleRoutes);
+router.use('/api/opportunity', similarRoutes);
 
 /** Error handling */
 router.use((req, res, next) => {

@@ -37,5 +37,17 @@ export const actions: ActionTree<RootState, RootState> = {
             console.log(error);
             //commit('profileError');
         });
+    },
+    fetchSimilarOpportunities({ commit }, id: string): any {
+        console.log(id);
+        axios({
+            url: `http://localhost:1337/api/opportunity/similar/${id}`,
+        }).then((response: any) => {
+            console.log(response);
+            //commit('opportunityLoaded', payload);
+        }, (error: any) => {
+            console.log(error);
+            //commit('profileError');
+        });
     }
 };

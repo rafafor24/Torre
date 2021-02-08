@@ -9,6 +9,7 @@
           {{ "Status: " + opportunity.status + "." }}
         </div>
         <img class="logo-company" v-bind:src="opportunity.imageURL" />
+        <button @click="searchSimilarOpportunities(opportunity.id)"></button>
       </div>
     </div>
   </div>
@@ -16,7 +17,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { useStore } from "../store";
+import { useStore, store } from "../store";
 import { useRoute } from "vue-router";
 import { Opportunity } from "@/store/types";
 
@@ -33,6 +34,11 @@ import { Opportunity } from "@/store/types";
         const store = useStore();
         return store.state.opportunity;
       },
+    },
+  },
+  methods: {
+    searchSimilarOpportunities(id: string): void {
+      store.dispatch("fetchSimilarOpportunities", id);
     },
   },
   mounted() {
