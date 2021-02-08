@@ -57,7 +57,6 @@ import OpportunitiesList from "@/components/OpportunitiesList.vue"; // @ is an a
       }
     },
     searchOpportunity(id: string): void {
-      console.log(this.searchText);
       store.dispatch("fetchOpportunity", id);
     },
   },

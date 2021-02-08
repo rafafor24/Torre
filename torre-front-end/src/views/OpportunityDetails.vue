@@ -58,7 +58,6 @@ import OpportunitiesListView from "@/components/OpportunitiesListView.vue"; // @
       store.dispatch("fetchSimilarOpportunities", id);
     },
     searchOpportunity(id: string): void {
-      console.log(this.searchText);
       store.dispatch("fetchOpportunity", id);
     },
   },

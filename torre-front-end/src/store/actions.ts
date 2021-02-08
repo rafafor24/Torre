@@ -21,43 +21,32 @@ export const actions: ActionTree<RootState, RootState> = {
                 };
                 return op
             });
-            console.log("payload");
-            console.log(payload);
             commit('profileLoaded', payload);
         }, (error: any) => {
-            console.log(error);
             commit('profileError');
         });
     },
     fetchOpportunity({ commit }, id: string): any {
-        console.log(id);
         axios({
             url: `https://torre.co/api/opportunities/${id}`,
         }).then((response: any) => {
-            console.log(response);
             const payload: Opportunity = {
                 id: response.data.id,
                 objective: response.data.objective,
                 status: response.data.status,
                 imageURL: response.data.organizations[0].picture
             };
-            console.log(payload);
-            console.log("payload");
             commit('opportunityLoaded', payload);
         }, (error: any) => {
-            console.log(error);
-            //commit('profileError');
+            commit('profileError');
         });
     },
     fetchSimilarOpportunities({ commit }, id: string): any {
-        console.log(id);
         axios({
             url: `http://localhost:1337/api/opportunity/similar/${id}`,
         }).then((response: any) => {
-            console.log(response.data);
             commit('similarOpportunitiesLoaded', response.data);
         }, (error: any) => {
-            console.log(error);
             commit('profileError');
         });
     }
