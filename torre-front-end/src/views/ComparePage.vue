@@ -72,7 +72,7 @@ export default class Home extends Vue {}
 
 <style lang="scss" scoped>
 .compare-opportunities {
-  padding: 50px 5%;
+  padding: 30px 5%;
   background-color: #010101;
   textarea {
     border: 1px solid #dfe3e8;

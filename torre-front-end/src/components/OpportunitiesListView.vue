@@ -2,14 +2,12 @@
   <div class="item" v-for="opportunity in opportunities" :key="opportunity.id">
     <div class="opportunity_details">
       <h2>
-        {{
-          opportunity.objective +
-          " - " +
-          opportunity.status +
-          " - " +
-          opportunity.id
-        }}
+        {{ opportunity.objective + " - Status: " + opportunity.status + " - " }}
       </h2>
+      <img class="logo-company" v-bind:src="opportunity.imageURL" />
+      <a target="_blank" :href="'https://torre.co/jobs/' + opportunity.id"
+        >Go to the Opportunity in Torre.co</a
+      >
     </div>
   </div>
 </template>

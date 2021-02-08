@@ -1,6 +1,7 @@
 import { ActionTree } from 'vuex';
 import axios from 'axios';
 import { RootState, Opportunity } from './types';
+import { parseQuery } from 'vue-router';
 
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -11,7 +12,17 @@ export const actions: ActionTree<RootState, RootState> = {
             //data: "{ \"and\": [{ \"bestfor\": { \"username\": \"raforero11\" } }",
             data: term ? { "and": [{ "organization": term }, { "status": { "code": "open" } },] } : { "status": { "code": "open" } },
         }).then((response: any) => {
-            const payload: Opportunity[] = response.data.results;
+            const payload: Opportunity[] = response.data.results.map((o: any) => {
+                const op: Opportunity = {
+                    id: o.id,
+                    objective: o.objective,
+                    status: o.status,
+                    imageURL: o.organizations[0].picture
+                };
+                return op
+            });
+            console.log("payload");
+            console.log(payload);
             commit('profileLoaded', payload);
         }, (error: any) => {
             console.log(error);

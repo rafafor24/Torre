@@ -5,11 +5,13 @@
         <h1 class="user-profile__username">
           <strong>{{ opportunity.objective }} </strong>
         </h1>
+        <img class="logo-company" v-bind:src="opportunity.imageURL" />
         <div class="user-profile__follower-count">
           {{ "Status: " + opportunity.status + "." }}
         </div>
-        <img class="logo-company" v-bind:src="opportunity.imageURL" />
-        <button @click="searchSimilarOpportunities(opportunity.id)"></button>
+        <button @click="searchSimilarOpportunities(opportunity.id)">
+          Search Similar Opportunities
+        </button>
       </div>
     </div>
     <OpportunitiesListView
@@ -75,8 +77,6 @@ export default class OpportunityDetails extends Vue {}
   padding: 50px 5%;
   background-color: #010101;
   .user-profile__user-panel {
-    display: flex;
-    flex-direction: column;
     padding: 20px;
     background-color: #383b40;
     border-radius: 5px;
@@ -85,9 +85,14 @@ export default class OpportunityDetails extends Vue {}
     h1 {
       margin: 0;
     }
-    .logo-company {
-      width: 100px;
-      height: 100px;
+    button {
+      padding: 5px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #cddc39;
+      color: #010101;
+      font-weight: bold;
+      font-size: 25px;
     }
     .user-profile__admin-badge {
       background: rebeccapurple;
