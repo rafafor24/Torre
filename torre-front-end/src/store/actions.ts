@@ -11,7 +11,6 @@ export const actions: ActionTree<RootState, RootState> = {
             //data: "{ \"and\": [{ \"bestfor\": { \"username\": \"raforero11\" } }",
             data: term ? { "and": [{ "organization": term }, { "status": { "code": "open" } },] } : { "status": { "code": "open" } },
         }).then((response: any) => {
-            console.log(response);
             const payload: Opportunity[] = response.data.results;
             commit('profileLoaded', payload);
         }, (error: any) => {
@@ -25,8 +24,15 @@ export const actions: ActionTree<RootState, RootState> = {
             url: `https://torre.co/api/opportunities/${id}`,
         }).then((response: any) => {
             console.log(response);
-            //const payload: Opportunity[] = response.data.results;
-            //commit('profileLoaded', payload);
+            const payload: Opportunity = {
+                id: response.data.id,
+                objective: response.data.objective,
+                status: response.data.status,
+                imageURL: response.data.organizations[0].picture
+            };
+            console.log(payload);
+            console.log("payload");
+            commit('opportunityLoaded', payload);
         }, (error: any) => {
             console.log(error);
             //commit('profileError');

@@ -1,10 +1,18 @@
 <template>
   <div class="compare-opportunities">
-    <h1 class="title">Find your opportunity</h1>
-    <form>
-      <textarea name="searchbar" rows="4" v-model="searchText"></textarea>
-    </form>
-    <button @click="searchOpportunities()">Search</button>
+    <div class="searchbar">
+      <h1 class="title">Find your opportunity</h1>
+      <form>
+        <textarea
+          placeholder="Ex. Torre Labs"
+          name="searchbar"
+          rows="1"
+          cols="40"
+          v-model="searchText"
+        ></textarea>
+      </form>
+      <button @click="searchOpportunities()">Search</button>
+    </div>
     <div
       class="item"
       v-for="opportunity in opportunities"
@@ -79,6 +87,13 @@ export default class Home extends Vue {}
 
 <style lang="scss" scoped>
 .compare-opportunities {
+  padding: 50px 5%;
+  background-color: #010101;
+  textarea {
+    border: 1px solid #dfe3e8;
+    border-radius: 5px;
+    font-size: 25px;
+  }
   button {
     padding: 5px 20px;
     margin: auto 0;
@@ -88,6 +103,15 @@ export default class Home extends Vue {}
     color: #010101;
     font-weight: bold;
     font-size: 25px;
+  }
+  .searchbar {
+    padding: 20px;
+    margin: 50px;
+    background-color: #383b40;
+    border-radius: 5px;
+    border: 1px solid #dfe3e8;
+    box-sizing: border-box;
+    cursor: pointer;
   }
   .item {
     padding: 20px;

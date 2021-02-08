@@ -23,18 +23,25 @@
   nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 5%;
-    background-color: #383b40;
-    color: white;
+    justify-content: space-evenly;
+    padding: 30px 5%;
+    background-color: #27292d;
+    color: #f2f3f4;
     border-radius: 3px;
     border: 0.5px solid #dfe3e8;
     .navigation__logo {
       font-weight: bold;
-      font-size: 24px;
+      font-size: 34px;
+      &:hover {
+        color: #cddc39;
+      }
     }
     .navigation__user {
       font-weight: bold;
+      font-size: 24px;
+      &:hover {
+        color: #cddc39;
+      }
     }
   }
 }
