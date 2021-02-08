@@ -15,7 +15,9 @@
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
-    "vuex-class": "^0.3.2"
+    "vuex-class": "^0.3.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",

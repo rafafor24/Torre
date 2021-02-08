@@ -1,31 +1,41 @@
 <template>
-  <h1></h1>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">Compare Opportunities</router-link>
+  <div id="app">
+    <nav>
+      <router-link to="/">
+        <div class="navigation__logo">Home</div>
+      </router-link>
+      <router-link to="/compare">
+        <div class="navigation__user">Compare Opportunities</div>
+      </router-link>
+    </nav>
   </div>
   <router-view />
 </template>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
+  background-color: #383b40;
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    background-color: #383b40;
+    color: white;
+    border-radius: 3px;
+    border: 0.5px solid #dfe3e8;
+    .navigation__logo {
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .navigation__user {
+      font-weight: bold;
+    }
+  }
 }
 </style>

@@ -1,13 +1,26 @@
 <template>
   <div class="compare-opportunities">
-    <h1>{{ helloMessage }}</h1>
+    <h1 class="title">Find your opportunity</h1>
     <form>
       <textarea name="searchbar" rows="4" v-model="searchText"></textarea>
     </form>
-    <button @click="searchOpportunity()">Search</button>
-    <h1 v-for="opportunity in opportunities" :key="opportunity.name">
-      {{ opportunity.objective + " - " + opportunity.status }}
-    </h1>
+    <button @click="searchOpportunities()">Search</button>
+    <div
+      class="item"
+      v-for="opportunity in opportunities"
+      :key="opportunity.id"
+      @click="searchOpportunity(opportunity.id)"
+    >
+      <h2>
+        {{
+          opportunity.objective +
+          " - " +
+          opportunity.status +
+          " - " +
+          opportunity.id
+        }}
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -39,14 +52,62 @@ import { useStore, store } from "../store";
     },
   },
   methods: {
-    searchOpportunity(): void {
+    searchOpportunities(): void {
+      if (this.searchText != "") {
+        store.dispatch("fetchData", { term: this.searchText });
+      }
+    },
+    searchOpportunity(id: string): void {
       console.log(this.searchText);
-      store.dispatch("fetchData", { term: this.searchText });
+      store.dispatch("fetchOpportunity", id);
     },
   },
   mounted() {
     // fetching data as soon as the component's been mounted
+    const store = useStore();
+    store.dispatch("fetchData");
   },
 })
 export default class Home extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+.compare-opportunities {
+  button {
+    padding: 5px 20px;
+    margin: auto 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #cddc39;
+    color: #010101;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  .item {
+    padding: 20px;
+    margin: 10px;
+    background-color: #383b40;
+    border-radius: 5px;
+    border: 1px solid #cddc39;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    &:hover {
+      transform: scale(1.1, 1.1);
+      background-color: #cddc39;
+      h2 {
+        color: black;
+      }
+    }
+    .item__user {
+      font-weight: bold;
+    }
+    h2 {
+      color: #dfe3e8;
+    }
+  }
+  .title {
+    color: #dfe3e8;
+  }
+}
+</style>
