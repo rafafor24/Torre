@@ -43,7 +43,7 @@ export const actions: ActionTree<RootState, RootState> = {
     },
     fetchSimilarOpportunities({ commit }, id: string): any {
         axios({
-            url: `http://localhost:1337/api/opportunity/similar/${id}`,
+            url: `https://torre-backed.herokuapp.com/api/opportunity/similar/${id}`,
         }).then((response: any) => {
             commit('similarOpportunitiesLoaded', response.data);
         }, (error: any) => {
