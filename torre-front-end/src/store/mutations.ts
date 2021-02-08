@@ -14,5 +14,8 @@ export const mutations: MutationTree<RootState> = {
         console.log(payload);
         console.log("payload");
         state.opportunity = payload;
-    }
+    },
+    similarOpportunitiesLoaded(state, payload: Opportunity[]) {
+        state.similarOpportunities = payload;
+    },
 };

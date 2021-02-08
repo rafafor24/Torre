@@ -12,6 +12,11 @@
         <button @click="searchSimilarOpportunities(opportunity.id)"></button>
       </div>
     </div>
+    <OpportunitiesListView
+      v-if="similarOpportunities"
+      :opportunities="similarOpportunities"
+      :clickable="false"
+    ></OpportunitiesListView>
   </div>
 </template>
 
@@ -20,8 +25,12 @@ import { Options, Vue } from "vue-class-component";
 import { useStore, store } from "../store";
 import { useRoute } from "vue-router";
 import { Opportunity } from "@/store/types";
+import OpportunitiesListView from "@/components/OpportunitiesListView.vue"; // @ is an alias to /src
 
 @Options({
+  components: {
+    OpportunitiesListView,
+  },
   data() {
     const route = useRoute();
     return {
@@ -35,10 +44,20 @@ import { Opportunity } from "@/store/types";
         return store.state.opportunity;
       },
     },
+    similarOpportunities: {
+      get(): Opportunity[] {
+        const store = useStore();
+        return store.state.similarOpportunities;
+      },
+    },
   },
   methods: {
     searchSimilarOpportunities(id: string): void {
       store.dispatch("fetchSimilarOpportunities", id);
+    },
+    searchOpportunity(id: string): void {
+      console.log(this.searchText);
+      store.dispatch("fetchOpportunity", id);
     },
   },
   mounted() {

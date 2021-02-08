@@ -43,11 +43,11 @@ export const actions: ActionTree<RootState, RootState> = {
         axios({
             url: `http://localhost:1337/api/opportunity/similar/${id}`,
         }).then((response: any) => {
-            console.log(response);
-            //commit('opportunityLoaded', payload);
+            console.log(response.data);
+            commit('similarOpportunitiesLoaded', response.data);
         }, (error: any) => {
             console.log(error);
-            //commit('profileError');
+            commit('profileError');
         });
     }
 };

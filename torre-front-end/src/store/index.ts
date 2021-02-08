@@ -11,6 +11,7 @@ export const store = createStore<RootState>({
   state: {
     loaded: false,
     opportunities: [],
+    similarOpportunities: [],
     opportunity: { id: "elid", objective: "Obj", status: "Opens", imageURL: "imagenURL" },
   },
   actions,
