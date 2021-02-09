@@ -5,7 +5,19 @@
         <router-link class="content" to="/">🐶 WHAT IS THIS? </router-link>
       </div>
       <div class="navigation__name">
-        <div class="content">dogesrating.com</div>
+        <div class="content">
+          <img
+            class="logo-doge"
+            alt="Vue logo"
+            src="@/assets/dark_muscle_doge.jpg"
+          />
+          dogesrating.com
+          <img
+            class="logo-doge"
+            alt="Vue logo"
+            src="@/assets/dark_normal_doge.jpg"
+          />
+        </div>
       </div>
       <div class="navigation__compare">
         <router-link class="content" to="/compare">

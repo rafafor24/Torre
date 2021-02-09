@@ -13,6 +13,8 @@
           🔗 Go to the Opportunity in Torre.co 🌐
         </a>
       </div>
+      <h1>Your Rank:</h1>
+      <img class="logo-company" alt="Vue logo" src="@/assets/muscle_doge.jpg" />
       <img class="logo-company" v-bind:src="opportunity.imageURL" />
       <div class="opportunity__status">
         {{ "Status: " + opportunity.status + "." }}
