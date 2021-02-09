@@ -10,4 +10,5 @@ export interface RootState {
     opportunities: Opportunity[];
     opportunity: Opportunity;
     similarOpportunities: Opportunity[];
+    shibeImage: string;
 }

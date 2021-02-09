@@ -13,6 +13,7 @@ export const store = createStore<RootState>({
     opportunities: [],
     similarOpportunities: [],
     opportunity: { id: "elid", objective: "Obj", status: "Opens", imageURL: "imagenURL" },
+    shibeImage: "",
   },
   actions,
   mutations,

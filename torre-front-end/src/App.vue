@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
       <router-link to="/">
-        <div class="navigation__logo">Home</div>
+        <div class="navigation__logo">What is this?</div>
       </router-link>
       <router-link to="/compare">
         <div class="navigation__user">Compare Opportunities</div>

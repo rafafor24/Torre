@@ -49,5 +49,15 @@ export const actions: ActionTree<RootState, RootState> = {
         }, (error: any) => {
             commit('profileError');
         });
+    },
+    fetchShibe({ commit }): any {
+        axios({
+            url: `http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`,
+        }).then((response: any) => {
+            console.log(response);
+            commit('shibeLoaded', response.data[0]);
+        }, (error: any) => {
+            commit('profileError');
+        });
     }
 };
