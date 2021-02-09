@@ -2,7 +2,8 @@
 # Dev Log Rafael Forero
 # Why vue.js for the front-end?
 I decided to use vue.js for this project in order to challenge myself, this was the very first time I am using it besides a tutorial I watched on Friday. I have experience using React and Angular but for a while now I was willing to try something new and my friends and colleagues recommended vue.js and it is becoming popular, so I said: "Why not?"
-# Why Node.js with Express for the backend
+
+# Why Node.js with Express for the backend?
 Since I was going to learn a new framework from 0, I decided to use a more known technology for me, I am not that crazy. Also is cool to use the same programming language for both backend and frontend, Typescript.
 
 # Saturday 6th of February: Brainstorming
@@ -33,7 +34,12 @@ This day the only code related thing I did was to create the git repo in GitHub.
 
 4am I left for the end the redaction of this log based on my notebook doodles and notes.
 
+# Conclussion
+
+I loved the test💕, it was really motivating for my creativity. It is a really useful exercise and I learned a lot specially about Vue and all the time felt productive and proactive.
+
 # What would be next? What is missing?
 - Continue making the ranking system more robust.
 - Implementing some security to the backend so only the front-end app could make those requests.
 - Implement the course search API in another component and pay for it I supposed (There is no free API for searching courses).
+- Fix possible bugs and code the unit tests for front and back end.
