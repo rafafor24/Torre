@@ -62,7 +62,6 @@ const getOpportunities = (req: Request, res: Response, next: NextFunction) => {
         }).filter((o: any) => o.order > 0).sort((a: any, b: any) => b.order - a.order);
         return res.status(200).json(payload);
     }, (error: any) => {
-        console.log(error);
     });
 };
 

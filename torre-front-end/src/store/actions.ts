@@ -45,7 +45,6 @@ export const actions: ActionTree<RootState, RootState> = {
             },
             url: `https://dog.ceo/api/breed/shiba/images/random`,
         }).then((response: any) => {
-            console.log(response);
             commit('shibeLoaded', response.data.message);
         }, (error: any) => {
             commit('profileError');
