@@ -55,7 +55,7 @@ export const actions: ActionTree<RootState, RootState> = {
             headers: {
                 // remove headers
             },
-            url: `https://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`,
+            url: `https://dog.ceo/api/breed/shiba/images/random`,
         }).then((response: any) => {
             console.log(response);
             commit('shibeLoaded', response.data[0]);
