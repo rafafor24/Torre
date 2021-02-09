@@ -9,7 +9,7 @@
         {{ "Status: " + opportunity.status + "." }}
       </div>
       <button @click="searchSimilarOpportunities(opportunity.id)">
-        Search Similar Opportunities
+        Search Similar Opportunities 🤓
       </button>
     </div>
     <h1 v-if="similarOpportunitiesLoaded">

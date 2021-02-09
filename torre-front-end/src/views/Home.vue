@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <h1>Hello!</h1>
+    <h1>🐾🐕Hello traveler!👋</h1>
     <img class="shibe" :src="shibeImage" />
     <h1>
-      In this page you can search for opportunities avaliable in
-      <a class="link" target="_blank" href="https://torre.co/">Torre.co</a> and
-      compare it with similar opportunities.
+      In this page you can search for a opportunity avaliable in
+      <a class="link" target="_blank" href="https://torre.co/"
+        >🔗 Torre.co 🌐</a
+      >
+      and rank it among similar opportunities.
     </h1>
     <h1>
       Go to
       <strong class="link">
-        <router-link to="/compare">Compare Opportunities </router-link>
+        <router-link to="/compare">'Rank Opportunity' 🖥️</router-link>
       </strong>
-      and start your research.
+      and start your research, Good Luck!🍀
     </h1>
     <div>
       <img alt="Vue logo" src="../assets/logo.png" />

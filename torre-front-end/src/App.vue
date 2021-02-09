@@ -2,11 +2,11 @@
   <div id="app">
     <nav>
       <div class="navigation__logo">
-        <router-link class="content" to="/">WHAT IS THIS? </router-link>
+        <router-link class="content" to="/">🐶 WHAT IS THIS? </router-link>
       </div>
       <div class="navigation__user">
         <router-link class="content" to="/compare">
-          COMPARE OPPORTUNITIES
+          🎖️RANK OPPORTUNITY🏅
         </router-link>
       </div>
     </nav>

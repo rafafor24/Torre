@@ -24,4 +24,8 @@ export const mutations: MutationTree<RootState> = {
         state.similarOpportunitiesLoaded = false;
         state.similarOpportunities = [];
     },
+    clearOpportunities(state) {
+        state.loaded = false;
+        state.opportunities = [];
+    },
 };

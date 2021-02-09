@@ -1,8 +1,20 @@
 <template>
-  <div class="item" v-for="opportunity in opportunities" :key="opportunity.id">
+  <div
+    class="item"
+    v-for="(opportunity, index) in opportunities"
+    :key="opportunity.id"
+  >
     <div class="opportunity_details">
       <h2>
-        {{ opportunity.objective + " - Status: " + opportunity.status + " - " }}
+        {{
+          medalEmojis[index]
+            ? medalEmojis[index]
+            : "" +
+              opportunity.objective +
+              " - Status: " +
+              opportunity.status +
+              " - "
+        }}
       </h2>
       <img class="logo-company" v-bind:src="opportunity.imageURL" />
       <div class="opportunity_url">
@@ -20,8 +32,12 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 @Options({
+  data() {
+    return { medalEmojis: ["🏆🏆🏆🥇🥇🥇🏆🏆🏆", "🏆🏆🥈🥈🏆🏆", "🏆🥉🏆"] };
+  },
   props: {
     opportunities: [],
+    opportunityId: "",
   },
 })
 export default class OpportunitiesListView extends Vue {

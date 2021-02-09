@@ -1,7 +1,7 @@
 <template>
   <div class="compare-opportunities">
     <div class="searchbar">
-      <h1 class="title">Find your opportunity</h1>
+      <h1 class="title">🔍Find your opportunity🔎</h1>
       <form>
         <textarea
           placeholder="Ex. Torre Labs"
@@ -11,9 +11,9 @@
           v-model="searchText"
         ></textarea>
       </form>
-      <button @click="searchOpportunities()">Search</button>
+      <button @click="searchOpportunities()">Search🧐</button>
     </div>
-    <h1 class="title">Results:</h1>
+    <h1 v-if="opportunities && opportunitiesLoaded" class="title">Results:</h1>
     <OpportunitiesList
       v-if="opportunities"
       :opportunities="opportunities"
@@ -67,20 +67,18 @@ import OpportunitiesList from "@/components/OpportunitiesList.vue"; // @ is an a
     searchOpportunities(): void {
       if (this.searchText != "") {
         this.loading = true;
-        store.dispatch("fetchData", { term: this.searchText });
+        store.dispatch("fetchData", this.searchText);
+        this.searchText = "";
       }
-      this.loading = false;
     },
     searchOpportunity(id: string): void {
       store.dispatch("fetchOpportunity", id);
     },
   },
-  mounted() {
-    // fetching data as soon as the component's been mounted
-    this.loading = true;
-
+  unmounted() {
+    this.loading = false;
     const store = useStore();
-    store.dispatch("fetchData");
+    store.dispatch("clearOpportunities");
   },
 })
 export default class Home extends Vue {}

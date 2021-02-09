@@ -5,12 +5,12 @@ import { parseQuery } from 'vue-router';
 
 
 export const actions: ActionTree<RootState, RootState> = {
-    fetchData({ commit }, term?: string): any {
+    fetchData({ commit }, term: string): any {
         axios({
             method: 'post',
             url: 'https://search.torre.co/opportunities/_search/?currency=USD%24&page=0&periodicity=hourly&lang=en&size=25&aggregate=false&offset=0',
             //data: "{ \"and\": [{ \"bestfor\": { \"username\": \"raforero11\" } }",
-            data: term ? { "and": [{ "organization": term }, { "status": { "code": "open" } },] } : { "status": { "code": "open" } },
+            data: { "and": [{ "organization": { "term": term } }, { "status": { "code": "open" } },] },
         }).then((response: any) => {
             const payload: Opportunity[] = response.data.results.map((o: any) => {
                 const op: Opportunity = {
@@ -65,6 +65,9 @@ export const actions: ActionTree<RootState, RootState> = {
     },
     clearSimilarOpportunities({ commit }): any {
         commit("clearSimilarOpportunities");
+    },
+    clearOpportunities({ commit }): any {
+        commit("clearOpportunities");
     }
 
 };
