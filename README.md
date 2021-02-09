@@ -43,3 +43,4 @@ I loved the test💕, it was really motivating for my creativity. It is a really
 - Implementing some security to the backend so only the front-end app could make those requests.
 - Implement the course search API in another component and pay for it I supposed (There is no free API for searching courses).
 - Fix possible bugs and code the unit tests for front and back end.
+- Refactor some parts of the code so it can be more reusable.
