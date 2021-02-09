@@ -17,7 +17,7 @@
       and start your research, Good Luck!🍀
     </h1>
     <div>
-      <img alt="Vue logo" src="../assets/logo.png" />
+      <img class="vue_logo" alt="Vue logo" src="../assets/logo.png" />
     </div>
   </div>
 </template>
@@ -55,6 +55,9 @@ export default class Home extends Vue {}
 .home {
   h1 {
     color: #dfe3e8;
+  }
+  .vue_logo {
+    width: 50px;
   }
   .shibe {
     width: 20%;

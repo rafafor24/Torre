@@ -18,6 +18,7 @@
     <OpportunitiesListView
       v-if="similarOpportunitiesLoaded"
       :opportunities="similarOpportunities"
+      :opportunityId="id"
       :clickable="false"
     ></OpportunitiesListView>
     <img

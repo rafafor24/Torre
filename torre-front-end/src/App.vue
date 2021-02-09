@@ -1,10 +1,13 @@
 <template>
   <div id="app">
     <nav>
-      <div class="navigation__logo">
+      <div class="navigation__about">
         <router-link class="content" to="/">🐶 WHAT IS THIS? </router-link>
       </div>
-      <div class="navigation__user">
+      <div class="navigation__name">
+        <div class="content">dogesrating.com</div>
+      </div>
+      <div class="navigation__compare">
         <router-link class="content" to="/compare">
           🎖️RANK OPPORTUNITY🏅
         </router-link>
@@ -37,9 +40,9 @@
     color: #f2f3f4;
     border-radius: 3px;
     border: 0.5px solid #dfe3e8;
-    .navigation__logo {
+    .navigation__about {
       font-weight: bold;
-      font-size: 34px;
+      font-size: 30px;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -51,15 +54,22 @@
         border-bottom: 8px solid #cddc39;
       }
     }
-    .navigation__user {
+    .navigation__compare {
       font-weight: bold;
-      font-size: 24px;
+      font-size: 20px;
       &:hover {
         transform: scale(1.1, 1.1);
         color: #cddc39;
       }
       .content {
         border-bottom: 6px solid #cddc39;
+      }
+    }
+    .navigation__name {
+      font-weight: bold;
+      font-size: 24px;
+      .content {
+        border-bottom: 6px solid #f2f3f4;
       }
     }
   }
