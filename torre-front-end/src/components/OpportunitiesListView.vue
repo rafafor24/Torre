@@ -63,10 +63,6 @@ export default class OpportunitiesListView extends Vue {
   .item__user {
     font-weight: bold;
   }
-  .opportunity_url {
-    align-content: center;
-    margin: 10px;
-  }
   h2 {
     color: #dfe3e8;
   }

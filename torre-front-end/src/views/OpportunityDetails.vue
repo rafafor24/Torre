@@ -4,6 +4,15 @@
       <h1>
         <strong>{{ opportunity.objective }} </strong>
       </h1>
+      <div class="opportunity_url">
+        <a
+          target="_blank"
+          :href="'https://torre.co/jobs/' + opportunity.id"
+          role="button"
+        >
+          🔗 Go to the Opportunity in Torre.co 🌐
+        </a>
+      </div>
       <img class="logo-company" v-bind:src="opportunity.imageURL" />
       <div class="opportunity__status">
         {{ "Status: " + opportunity.status + "." }}

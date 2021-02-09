@@ -11,9 +11,14 @@
           v-model="searchText"
         ></textarea>
       </form>
+      <h3 class="error" v-if="error.value">{{ error.message }}</h3>
       <button @click="searchOpportunities()">Search🧐</button>
     </div>
     <h1 v-if="opportunities && opportunitiesLoaded" class="title">Results:</h1>
+    <h2 v-if="opportunities.length === 0" class="title">
+      😕 We could not find any results for that search 🙃😵, please try another
+      term 😅😅
+    </h2>
     <OpportunitiesList
       v-if="opportunities"
       :opportunities="opportunities"
@@ -40,6 +45,7 @@ import OpportunitiesList from "@/components/OpportunitiesList.vue"; // @ is an a
     return {
       searchText: "",
       loading: false,
+      error: { message: "", value: false },
     };
   },
   computed: {
@@ -67,8 +73,11 @@ import OpportunitiesList from "@/components/OpportunitiesList.vue"; // @ is an a
     searchOpportunities(): void {
       if (this.searchText != "") {
         this.loading = true;
+        this.error = { message: "", value: false };
         store.dispatch("fetchData", this.searchText);
         this.searchText = "";
+      } else {
+        this.error = { message: "🚨 Enter some text! ⚠️", value: true };
       }
     },
     searchOpportunity(id: string): void {
@@ -93,6 +102,10 @@ export default class Home extends Vue {}
     border-radius: 5px;
     font-size: 25px;
     max-width: 100%;
+  }
+  .error {
+    color: rgb(153, 29, 29);
+    font-style: italic;
   }
   .searchbar {
     padding: 20px;
