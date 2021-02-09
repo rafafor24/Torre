@@ -20,6 +20,11 @@
       :opportunities="similarOpportunities"
       :clickable="false"
     ></OpportunitiesListView>
+    <img
+      v-if="!similarOpportunitiesLoaded && loading"
+      class="logo-company"
+      src="@/assets/loading.gif"
+    />
   </div>
 </template>
 
@@ -28,7 +33,7 @@ import { Options, Vue } from "vue-class-component";
 import { useStore, store } from "../store";
 import { useRoute } from "vue-router";
 import { Opportunity } from "@/store/types";
-import OpportunitiesListView from "@/components/OpportunitiesListView.vue"; // @ is an alias to /src
+import OpportunitiesListView from "@/components/OpportunitiesListView.vue";
 
 @Options({
   components: {
@@ -38,6 +43,7 @@ import OpportunitiesListView from "@/components/OpportunitiesListView.vue"; // @
     const route = useRoute();
     return {
       id: route.params.id,
+      loading: false,
     };
   },
   computed: {
@@ -62,6 +68,7 @@ import OpportunitiesListView from "@/components/OpportunitiesListView.vue"; // @
   },
   methods: {
     searchSimilarOpportunities(id: string): void {
+      this.loading = true;
       store.dispatch("fetchSimilarOpportunities", id);
     },
     searchOpportunity(id: string): void {
@@ -73,6 +80,11 @@ import OpportunitiesListView from "@/components/OpportunitiesListView.vue"; // @
     const store = useStore();
     store.dispatch("fetchOpportunity", this.id);
   },
+  unmounted() {
+    this.loading = false;
+    const store = useStore();
+    store.dispatch("clearSimilarOpportunities");
+  },
 })
 export default class OpportunityDetails extends Vue {}
 </script>
@@ -82,6 +94,9 @@ export default class OpportunityDetails extends Vue {}
   color: #dfe3e8;
   padding: 50px 5%;
   background-color: #010101;
+  .logo_company {
+    padding: 15px;
+  }
   .opportunity__user-panel {
     padding: 20px;
     background-color: #383b40;

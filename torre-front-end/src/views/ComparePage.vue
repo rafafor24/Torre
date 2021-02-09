@@ -13,10 +13,16 @@
       </form>
       <button @click="searchOpportunities()">Search</button>
     </div>
+    <h1 class="title">Results:</h1>
     <OpportunitiesList
       v-if="opportunities"
       :opportunities="opportunities"
     ></OpportunitiesList>
+    <img
+      v-if="!opportunitiesLoaded && loading"
+      class="logo-company"
+      src="@/assets/loading.gif"
+    />
   </div>
 </template>
 
@@ -33,6 +39,7 @@ import OpportunitiesList from "@/components/OpportunitiesList.vue"; // @ is an a
   data() {
     return {
       searchText: "",
+      loading: false,
     };
   },
   computed: {
@@ -49,12 +56,20 @@ import OpportunitiesList from "@/components/OpportunitiesList.vue"; // @ is an a
         return store.state.opportunities;
       },
     },
+    opportunitiesLoaded: {
+      get(): boolean {
+        const store = useStore();
+        return store.state.loaded;
+      },
+    },
   },
   methods: {
     searchOpportunities(): void {
       if (this.searchText != "") {
+        this.loading = true;
         store.dispatch("fetchData", { term: this.searchText });
       }
+      this.loading = false;
     },
     searchOpportunity(id: string): void {
       store.dispatch("fetchOpportunity", id);
@@ -62,6 +77,8 @@ import OpportunitiesList from "@/components/OpportunitiesList.vue"; // @ is an a
   },
   mounted() {
     // fetching data as soon as the component's been mounted
+    this.loading = true;
+
     const store = useStore();
     store.dispatch("fetchData");
   },

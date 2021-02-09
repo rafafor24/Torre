@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Hello!</h1>
-    <img class="shibe" src="https://dog.ceo/api/breed/shiba/images/random" />
+    <img class="shibe" :src="shibeImage" />
     <h1>
       In this page you can search for opportunities avaliable in
       <a class="link" target="_blank" href="https://torre.co/">Torre.co</a> and

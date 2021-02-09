@@ -20,4 +20,8 @@ export const mutations: MutationTree<RootState> = {
     shibeLoaded(state, payload: string) {
         state.shibeImage = payload;
     },
+    clearSimilarOpportunities(state) {
+        state.similarOpportunitiesLoaded = false;
+        state.similarOpportunities = [];
+    },
 };
