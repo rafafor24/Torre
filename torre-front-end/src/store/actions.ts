@@ -52,6 +52,9 @@ export const actions: ActionTree<RootState, RootState> = {
     },
     fetchShibe({ commit }): any {
         axios({
+            headers: {
+                // remove headers
+            },
             url: `https://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`,
         }).then((response: any) => {
             console.log(response);
