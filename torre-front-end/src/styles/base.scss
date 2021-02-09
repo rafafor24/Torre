@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: #010101;
+    height: 100%;
 }
 
 a {
@@ -11,4 +12,26 @@ a {
 .logo-company {
     width: 100px;
     height: 100px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 5px;
+    border: 3px solid #cddc39;
+    background-color: #b3b7be;
+    color: #010101;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+        transform: scale(1.1, 1.1);
+        background-color: #cddc39;
+
+        h2 {
+            color: black;
+        }
+    }
 }

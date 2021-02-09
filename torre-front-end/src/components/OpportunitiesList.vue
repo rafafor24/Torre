@@ -1,14 +1,18 @@
 <template>
-  <div class="item" v-for="opportunity in opportunities" :key="opportunity.id">
-    <router-link :to="{ name: 'Opportunity', params: { id: opportunity.id } }">
+  <router-link
+    v-for="opportunity in opportunities"
+    :key="opportunity.id"
+    :to="{ name: 'Opportunity', params: { id: opportunity.id } }"
+  >
+    <div class="item">
       <img class="logo-company" v-bind:src="opportunity.imageURL" />
       <div class="opportunity_details">
         <h2>
           {{ opportunity.objective + " - " + opportunity.status }}
         </h2>
       </div>
-    </router-link>
-  </div>
+    </div>
+  </router-link>
 </template>
 
 <script lang="ts">

@@ -1,21 +1,22 @@
 <template>
-  <div class="user-profile">
-    <div class="user-profile__sidebar">
-      <div class="user-profile__user-panel">
-        <h1 class="user-profile__username">
-          <strong>{{ opportunity.objective }} </strong>
-        </h1>
-        <img class="logo-company" v-bind:src="opportunity.imageURL" />
-        <div class="user-profile__follower-count">
-          {{ "Status: " + opportunity.status + "." }}
-        </div>
-        <button @click="searchSimilarOpportunities(opportunity.id)">
-          Search Similar Opportunities
-        </button>
+  <div class="opportunity">
+    <div class="opportunity__user-panel">
+      <h1>
+        <strong>{{ opportunity.objective }} </strong>
+      </h1>
+      <img class="logo-company" v-bind:src="opportunity.imageURL" />
+      <div class="opportunity__status">
+        {{ "Status: " + opportunity.status + "." }}
       </div>
+      <button @click="searchSimilarOpportunities(opportunity.id)">
+        Search Similar Opportunities
+      </button>
     </div>
+    <h1 v-if="similarOpportunitiesLoaded">
+      <strong>Results:</strong>
+    </h1>
     <OpportunitiesListView
-      v-if="similarOpportunities"
+      v-if="similarOpportunitiesLoaded"
       :opportunities="similarOpportunities"
       :clickable="false"
     ></OpportunitiesListView>
@@ -52,6 +53,12 @@ import OpportunitiesListView from "@/components/OpportunitiesListView.vue"; // @
         return store.state.similarOpportunities;
       },
     },
+    similarOpportunitiesLoaded: {
+      get(): boolean {
+        const store = useStore();
+        return store.state.similarOpportunitiesLoaded;
+      },
+    },
   },
   methods: {
     searchSimilarOpportunities(id: string): void {
@@ -71,41 +78,25 @@ export default class OpportunityDetails extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.user-profile {
+.opportunity {
   color: #dfe3e8;
   padding: 50px 5%;
   background-color: #010101;
-  .user-profile__user-panel {
+  .opportunity__user-panel {
     padding: 20px;
     background-color: #383b40;
     border-radius: 5px;
     border: 1px solid #dfe3e8;
     margin-bottom: auto;
     h1 {
-      margin: 0;
+      margin: 5px;
     }
-    button {
-      padding: 5px 20px;
-      border-radius: 5px;
-      border: none;
-      background-color: #cddc39;
-      color: #010101;
+    .opportunity__status {
+      color: #dfe3e8;
       font-weight: bold;
       font-size: 25px;
+      margin: 5px;
     }
-    .user-profile__admin-badge {
-      background: rebeccapurple;
-      color: white;
-      border-radius: 5px;
-      margin-right: auto;
-      padding: 0 10px;
-      font-weight: bold;
-    }
-  }
-  .user-profile__twoots-wrapper {
-    display: grid;
-    grid-gap: 10px;
-    margin-bottom: auto;
   }
 }
 </style>

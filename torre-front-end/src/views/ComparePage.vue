@@ -7,7 +7,7 @@
           placeholder="Ex. Torre Labs"
           name="searchbar"
           rows="1"
-          cols="40"
+          cols="25"
           v-model="searchText"
         ></textarea>
       </form>
@@ -77,16 +77,7 @@ export default class Home extends Vue {}
     border: 1px solid #dfe3e8;
     border-radius: 5px;
     font-size: 25px;
-  }
-  button {
-    padding: 5px 20px;
-    margin: auto 0;
-    border-radius: 5px;
-    border: none;
-    background-color: #cddc39;
-    color: #010101;
-    font-weight: bold;
-    font-size: 25px;
+    max-width: 100%;
   }
   .searchbar {
     padding: 20px;
@@ -95,7 +86,6 @@ export default class Home extends Vue {}
     border-radius: 5px;
     border: 1px solid #dfe3e8;
     box-sizing: border-box;
-    cursor: pointer;
   }
   .title {
     color: #dfe3e8;
