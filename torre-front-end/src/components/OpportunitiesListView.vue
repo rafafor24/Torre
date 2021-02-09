@@ -16,12 +16,13 @@
       </h2>
       <img class="logo-company" v-bind:src="opportunity.imageURL" />
       <div class="opportunity_url">
-        <button
+        <a
           target="_blank"
           :href="'https://torre.co/jobs/' + opportunity.id"
+          role="button"
         >
           🔗 Go to the Opportunity in Torre.co 🌐
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -64,10 +65,29 @@ export default class OpportunitiesListView extends Vue {
   }
   .opportunity_url {
     align-content: center;
-    font-style: italic;
+    margin: 10px;
   }
   h2 {
     color: #dfe3e8;
+  }
+  a {
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 5px;
+    border: 3px solid #cddc39;
+    background-color: #b3b7be;
+    color: #010101;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    &:hover {
+      transform: scale(1.1, 1.1);
+      background-color: #cddc39;
+      h2 {
+        color: black;
+      }
+    }
   }
 }
 </style>
