@@ -7,21 +7,9 @@ import { parseQuery } from 'vue-router';
 export const actions: ActionTree<RootState, RootState> = {
     fetchData({ commit }, term: string): any {
         axios({
-            method: 'post',
-            url: 'https://search.torre.co/opportunities/_search/?currency=USD%24&page=0&periodicity=hourly&lang=en&size=25&aggregate=false&offset=0',
-            //data: "{ \"and\": [{ \"bestfor\": { \"username\": \"raforero11\" } }",
-            data: { "and": [{ "organization": { "term": term } }, { "status": { "code": "open" } },] },
+            url: `https://torre-backed.herokuapp.com/api/opportunity/search/${term}`,
         }).then((response: any) => {
-            const payload: Opportunity[] = response.data.results.map((o: any) => {
-                const op: Opportunity = {
-                    id: o.id,
-                    objective: o.objective,
-                    status: o.status,
-                    imageURL: o.organizations[0].picture
-                };
-                return op
-            });
-            commit('profileLoaded', payload);
+            commit('profileLoaded', response.data);
         }, (error: any) => {
             commit('profileError');
         });
