@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get('/similar/:id', controller.similarOpportunities);
 
+router.get('/search/:text', controller.searchOpportunities);
+
 export = router;
