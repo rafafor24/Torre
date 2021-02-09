@@ -1,5 +1,4 @@
-# Torre
-Torre Technical Test
+## [DogesRating.com](https://torre-fronted.herokuapp.com/ "Front-end-app") 🐶🐶
 # Dev Log Rafael Forero
 # Why vue.js for the front-end?
 I decided to use vue.js for this project in order to challenge myself, this was the very first time I am using it besides a tutorial I watched on Friday. I have experience using React and Angular but for a while now I was willing to try something new and my friends and colleagues recommended vue.js and it is becoming popular, so I said: "Why not?"
